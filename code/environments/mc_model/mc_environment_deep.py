@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import torch as th
 import dill as pickle
 import random
+import os
 
 
 class MonteCarloEnvDeep(gym.Env, ABC):
@@ -106,7 +107,7 @@ class MonteCarloEnvDeep(gym.Env, ABC):
         self.set_observation_space()
 
 
-    def load_database(self, file_name = "environments/mc_model/starts_database/start_bank_n100000.pkl"):
+    def load_database(self, file_name=os.path.join(os.path.dirname(os.path.abspath(__file__)), "starts_database", "start_bank_n100000.pkl")):
         """
         loads a database with random LOB states
 
